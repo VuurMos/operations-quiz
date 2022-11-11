@@ -16,6 +16,8 @@ function getAnswer() {
 }
 
 function compareInput() {
+    answer = document.getElementById("n1").innerText * document.getElementById("n2").innerText;
+    //document.getElementById("answer").innerText = answer;
     input = document.getElementById("user-answer").value;
 
     if (answer == input) {
@@ -28,7 +30,8 @@ function compareInput() {
     }
 }
 
-document.getElementById("n1").innerText = getRndInt(1, 12);
-document.getElementById("n2").innerText = getRndInt(1, 12);
-answer = document.getElementById("n1").innerText * document.getElementById("n2").innerText;
-document.getElementById("answer").innerText = answer;
+function newQuestion() {
+    getNumbers()
+    document.getElementById("n1").innerText = n1
+    document.getElementById("n2").innerText = n2
+}

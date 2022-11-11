@@ -1,6 +1,8 @@
 let n1 = 0;
 let n2 = 0;
 let answer = 0;
+let highscore = 0;
+let score = 0;
 
 function getRndInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1) ) + min;
@@ -20,15 +22,21 @@ function compareInput() {
         document.getElementById("answer").innerText = answer;
         document.getElementById('nxtbtn').style.visibility = 'visible';
         document.getElementById('answer').style.visibility = 'visible';
+        //update score
+        score += 1;
+        document.getElementById("score-txt").innerText = score;
         return true;
     }
     else {
+        score = 0;
+        document.getElementById("score-txt").innerText = score;
         document.body.style.background = "#990000";
         return false;
     }
 }
 
 function newQuestion() {
+    checkHighscore();
     n1 = getRndInt(1, 12);
     n2 = getRndInt(1, 12);
     document.getElementById("n1").innerText = n1
@@ -38,6 +46,12 @@ function newQuestion() {
     document.getElementById('user-answer').value = ' ';
 }
 
+function checkHighscore() {
+    if (score > highscore) {
+        highscore = score
+        document.getElementById("highscore-txt").innerText = highscore;
+    }
+}
 
 
 //document.getElementById('nxtbtn').style.visibility = 'hidden';

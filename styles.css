@@ -3,3 +3,15 @@
     flex-direction: row;
     gap: 8px;
 }
+
+.highscore {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+}
+
+.score {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+}

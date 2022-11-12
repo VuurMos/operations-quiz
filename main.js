@@ -3,6 +3,7 @@ let n2 = 0;
 let answer = 0;
 let highscore = 0;
 let score = 0;
+let answer_checked = false;
 
 function getRndInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1) ) + min;
@@ -14,17 +15,21 @@ function getAnswer() {
 
 function compareInput() {
     answer = document.getElementById("n1").innerText * document.getElementById("n2").innerText;
-    //document.getElementById("answer").innerText = answer;
     input = document.getElementById("user-answer").value;
 
     if (answer == input) {
-        document.body.style.background = "#587b2e";
-        document.getElementById("answer").innerText = answer;
-        document.getElementById('nxtbtn').style.visibility = 'visible';
-        document.getElementById('answer').style.visibility = 'visible';
-        //update score
-        score += 1;
-        document.getElementById("score-txt").innerText = score;
+        if (answer_checked == false) {
+            document.body.style.background = "#587b2e";
+            document.getElementById('nxtbtn').style.visibility = 'visible';
+            //Reveal answer
+            document.getElementById("answer").innerText = answer;
+            document.getElementById('answer').style.visibility = 'visible';
+            //update score
+            score += 1;
+            document.getElementById("score-txt").innerText = score;
+            checkHighscore();
+            answer_checked = true;
+        }
         return true;
     }
     else {
@@ -36,14 +41,16 @@ function compareInput() {
 }
 
 function newQuestion() {
-    checkHighscore();
+    answer_checked = false;
+    //Generate new question
     n1 = getRndInt(1, 12);
     n2 = getRndInt(1, 12);
     document.getElementById("n1").innerText = n1
     document.getElementById("n2").innerText = n2
-    document.getElementById('nxtbtn').style.visibility = 'hidden';
+    //Hide answer and clear user input
     document.getElementById('answer').style.visibility = 'hidden';
     document.getElementById('user-answer').value = ' ';
+    document.getElementById('nxtbtn').style.visibility = 'hidden';
 }
 
 function checkHighscore() {
@@ -52,7 +59,3 @@ function checkHighscore() {
         document.getElementById("highscore-txt").innerText = highscore;
     }
 }
-
-
-//document.getElementById('nxtbtn').style.visibility = 'hidden';
-//document.getElementById('nxtbtn').style.visibility = 'visible';

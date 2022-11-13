@@ -5,6 +5,11 @@ let highscore = 0;
 let score = 0;
 let answer_checked = false;
 
+function startQuiz() {
+    document.getElementById('start').style.visibility = 'hidden';
+    document.getElementById('quiz').style.visibility = 'visible';
+}
+
 function getRndInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1) ) + min;
 }

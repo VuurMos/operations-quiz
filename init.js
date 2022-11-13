@@ -1,4 +1,5 @@
 //Populate the quiz with initial random values
+document.getElementById('quiz').style.visibility = 'hidden';
 document.getElementById('nxtbtn').style.visibility = 'hidden';
 document.getElementById('answer').style.visibility = 'hidden';
 document.getElementById("n1").innerText = getRndInt(1, 12);

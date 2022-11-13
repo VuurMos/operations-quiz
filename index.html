@@ -15,34 +15,49 @@
             <h1>Operations Quiz</h1>
         </div>
 
-        <div class="score-container">
-            <div class="highscore">
-                <h2>Highscore: </h2>
-                <h2 class="highscore-txt" id="highscore-txt">0</h2>
+        <div class="start" id="start">
+            <div class="selection">
+                <select id="q-type" onclick="selectType();">
+                    <option>Addition</option>
+                    <option>Subtraction</option>
+                    <option>Multiplication</option>
+                    <option>Division</option>
+                </select>
             </div>
-            <div class="score">
-                <h2>Score: </h2>
-                <h2 class="score-txt" id="score-txt">0</h2>
-            </div>
+
+            <button class="btn" id="startbtn" onclick="startQuiz();">Start</button>
         </div>
 
-        <div class="question">
-            <div class="n1" id="n1">1</div>
-            <div class="operation" id="operation">x</div>
-            <div class="n2" id="n2">2</div>
-            <div class="equal">=</div>
-            <div class="answer" id="answer">2</div>
-        </div>
-
-        <div class="answer-container">
-            <div class="user-answer">
-                <input type="number" id="user-answer" name="user-answer">
+        <div class="quiz" id="quiz">
+            <div class="score-container">
+                <div class="highscore">
+                    <h2>Highscore: </h2>
+                    <h2 class="highscore-txt" id="highscore-txt">0</h2>
+                </div>
+                <div class="score">
+                    <h2>Score: </h2>
+                    <h2 class="score-txt" id="score-txt">0</h2>
+                </div>
             </div>
-        </div>
-
-        <div class="buttons-container">
-            <button class="btn" id="checkbtn" onclick="compareInput();">Check</button>
-            <button class="btn" id="nxtbtn" onclick="newQuestion();">Next</button>
+    
+            <div class="question">
+                <div class="n1" id="n1">1</div>
+                <div class="operation" id="operation">x</div>
+                <div class="n2" id="n2">2</div>
+                <div class="equal">=</div>
+                <div class="answer" id="answer">2</div>
+            </div>
+    
+            <div class="answer-container">
+                <div class="user-answer">
+                    <input type="number" id="user-answer" name="user-answer">
+                </div>
+            </div>
+    
+            <div class="buttons-container">
+                <button class="btn" id="checkbtn" onclick="compareInput();">Check</button>
+                <button class="btn" id="nxtbtn" onclick="newQuestion();">Next</button>
+            </div>
         </div>
     </div>
 </body>

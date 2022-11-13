@@ -4,10 +4,28 @@ let answer = 0;
 let highscore = 0;
 let score = 0;
 let answer_checked = false;
+let quizType = "";
+
+function selectType() {
+    quizType = document.getElementById("q-type").value;
+
+    switch (quizType) {
+        case "Addition":
+            document.getElementById("operation").value = "+";
+        case "Subtraction":
+            document.getElementById("operation").value = "-";
+        case "Multiplication":
+            document.getElementById("operation").value = "*";
+        case "Division":
+            document.getElementById("operation").value = "/";
+    }
+}
 
 function startQuiz() {
-    document.getElementById('start').style.visibility = 'hidden';
-    document.getElementById('quiz').style.visibility = 'visible';
+    if (quizType != "" && quizType != "Selected Operation Type") {
+        document.getElementById('start').style.visibility = 'hidden';
+        document.getElementById('quiz').style.visibility = 'visible';
+    }
 }
 
 function getRndInt(min, max) {
@@ -15,11 +33,20 @@ function getRndInt(min, max) {
 }
 
 function getAnswer() {
-    answer = n1 * n2
+    switch (quizType) {
+        case "Addition":
+            return (n1 + n2);
+        case "Subtraction":
+            return (n1 - n2);
+        case "Multiplication":
+            return (n1 * n2);
+        case "Division":
+            return (n1 / n2);
+    }
 }
 
 function compareInput() {
-    answer = document.getElementById("n1").innerText * document.getElementById("n2").innerText;
+    answer = getAnswer();
     input = document.getElementById("user-answer").value;
 
     if (answer == input) {
